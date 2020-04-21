@@ -1,0 +1,17 @@
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/appsettings.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/login.deps.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/login.runtimeconfig.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/login.runtimeconfig.dev.json
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/login.dll
+/Users/cab/Desktop/logInApi/login/bin/Debug/netcoreapp3.1/login.pdb
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.csprojAssemblyReference.cache
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.MvcApplicationPartsAssemblyInfo.cache
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.AssemblyInfoInputs.cache
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.AssemblyInfo.cs
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.RazorTargetAssemblyInfo.cache
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/staticwebassets/login.StaticWebAssets.Manifest.cache
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/staticwebassets/login.StaticWebAssets.xml
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.dll
+/Users/cab/Desktop/logInApi/login/obj/Debug/netcoreapp3.1/login.pdb
