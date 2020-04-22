@@ -26,5 +26,12 @@ namespace login.Controllers
         {
             return _fixedData.GetFirstCredential();
         }
+
+        // [HttpPost]
+        // public bool AddCredential(credentials credentialToAdd)
+        // {
+        //     _fixedData.AddCredential(credentialToAdd);
+        //     return true;
+        // }
     }
 }

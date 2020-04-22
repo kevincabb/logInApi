@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using login.Services;
+using login.Services.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,7 +31,23 @@ namespace login
             services.AddControllers();
 
             services.AddScoped<DataService>();
+
+            services.AddScoped<DataServiceSql>();
+
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy", 
+                builder => builder.WithOrigins("http://localhost:7000")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials());
+            });
+
+            // This is added to connect to your sql server
+        var connectionString = Configuration.GetConnectionString("NameOfMyConnectionString");
+        services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
         }
+
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -42,6 +60,8 @@ namespace login
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

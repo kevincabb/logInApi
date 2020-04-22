@@ -7,7 +7,7 @@ namespace login.Services
     {
         public List<credentials> fixedData = new List<credentials>
         {
-            new credentials("kevincab", "Chicag0"),
+            new credentials(1, "kevincab", "Chicag0"),
         };
 
         public IEnumerable<credentials> GetCredentials()
@@ -24,5 +24,12 @@ namespace login.Services
         {
             return fixedData[0];
         }
+
+        // public void AddCredential(credentials cred)
+        // {
+        //     //We need to add cred to our List fixed
+        //     fixedData.Add(cred);
+        //     var x = 1;
+        // }
     }
 }
