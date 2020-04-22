@@ -9,8 +9,8 @@ using login.Services.Context;
 namespace login.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200422213101_initialize")]
-    partial class initialize
+    [Migration("20200422221719_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

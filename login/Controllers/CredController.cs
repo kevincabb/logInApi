@@ -24,7 +24,8 @@ namespace login.Controllers
         [HttpPost]
         public int AddCred(credentials credToAdd)
         {
-            //Take credToAdd
+            //Take credToAdd and pass it to our service
+            return _dataFromSql.InsertCred(credToAdd);
         }
     }
 }
