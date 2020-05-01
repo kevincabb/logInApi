@@ -17,18 +17,6 @@ namespace login.Services
 
         // C --> CRUD
         
-        // public bool InsertCred(credentials cred)
-        // {
-        //     //Adds the credentials into your DB
-        //     var credItem = _context.Add(cred);
-
-        //     //Save your changes
-        //     _context.SaveChanges();
-
-        //     //Returns bool of the newly added item back to you
-        //     //View in postman
-        //     return true;
-        // }
         public int InsertCred(credentials cred)
         {
             //Adds the credentials into your DB

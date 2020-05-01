@@ -54,9 +54,15 @@ namespace login.Controllers
             return _dataFromSql.InsertCred(credToAdd);
         }
 
-        [HttpPost("update")]
+        [HttpPost("updateusername")]
         public bool UpdateCred(credentials credToUpdate)
         {
+            List<credentials> creds =new List<credentials>(_dataFromSql.GetCreds());
+            foreach(var item in creds){
+                if(credToUpdate.userName == item.userName){
+                    return false;
+                }
+            }
             return _dataFromSql.UpdateAccount(credToUpdate);
         }
 
