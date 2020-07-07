@@ -22,6 +22,16 @@ namespace login.Controllers
             return _dataFromSql.GetCreds();
         }
 
+        [HttpGet("{cred}")]
+        public int getId(string cred){
+            return _dataFromSql.getId(cred);
+        }
+
+        [HttpGet("account/{id}")]
+        public credentials getAccount(int id){
+            return _dataFromSql.GetAccountById(id);
+        }
+
         [HttpPost("check")]
         public bool CheckSCred(credentials credToAdd)
         {
@@ -55,15 +65,23 @@ namespace login.Controllers
         }
 
         [HttpPost("updateusername")]
-        public bool UpdateCred(credentials credToUpdate)
+        public bool UpdateCredUserName(credentials credToUpdate)
         {
-            List<credentials> creds =new List<credentials>(_dataFromSql.GetCreds());
-            foreach(var item in creds){
-                if(credToUpdate.userName == item.userName){
-                    return false;
-                }
-            }
-            return _dataFromSql.UpdateAccount(credToUpdate);
+            return _dataFromSql.UpdateAccountUsername(credToUpdate);
+            // List<credentials> creds =new List<credentials>(_dataFromSql.GetCreds());
+            // foreach(var item in creds){
+            //     if(credToUpdate.id == item.id){
+                   
+            //          ;
+            //     }
+            // }
+            // return false;
+        }
+
+        [HttpPost("updatepassword")]
+        public bool UpdateCredPassword(credentials credToUpdate)
+        {
+            return _dataFromSql.UpdateAccountPassword(credToUpdate);
         }
 
         [HttpDelete("{id}")]

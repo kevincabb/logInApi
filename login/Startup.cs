@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace login {
     public class Startup {
@@ -28,6 +29,10 @@ namespace login {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
             services.AddControllers ();
+
+            services.AddSwaggerGen (c => {
+                c.SwaggerDoc ("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
 
             services.AddScoped<DataService> ();
 
@@ -54,10 +59,11 @@ namespace login {
 
             services.AddCors (options => {
                 options.AddPolicy ("CorsPolicy",
-                    builder => builder.WithOrigins ("http://localhost:7000")
-                    .AllowAnyHeader ()
-                    .AllowAnyMethod ()
-                    .AllowCredentials ());
+                    builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+                    // .AllowCredentials())
             });
 
             // This is added to connect to your sql server
@@ -71,11 +77,20 @@ namespace login {
                 app.UseDeveloperExceptionPage ();
             }
 
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger ();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI (c => {
+                c.SwaggerEndpoint ("/swagger/v1/swagger.json", "My API V1");
+            });
+
             // app.UseHttpsRedirection();
 
             app.UseRouting ();
 
-            app.UseAuthentication();
+            app.UseAuthentication ();
 
             app.UseCors ("CorsPolicy");
 
